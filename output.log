@@ -1,0 +1,94 @@
+========================================
+MODULE INFO
+========================================
+  Module ID: pretest_2.ll
+  Target:    x86_64-apple-macos13
+
+========================================
+GLOBAL VARIABLES
+========================================
+  @call_count (mutable)
+  @max_depth (constant)
+
+  Total: 2 global(s)
+
+========================================
+FUNCTION ANALYSIS
+========================================
+
+  Function: @putchar
+    Type: declaration (external)
+
+  Function: @track_call
+    Type: definition
+    Basic blocks: 1
+    Calls:
+      (none - leaf function)
+
+  Function: @emit_char
+    Type: definition
+    Basic blocks: 1
+    Calls:
+      -> @track_call
+      -> @putchar
+
+  Function: @abs
+    Type: definition
+    Basic blocks: 3
+    Calls:
+      -> @track_call
+
+  Function: @sum_to_n
+    Type: definition
+    Basic blocks: 3
+    Calls:
+      -> @track_call
+
+  Function: @factorial
+    Type: definition
+    Basic blocks: 3
+    Calls:
+      -> @track_call
+      -> @factorial
+
+  Function: @op_add
+    Type: definition
+    Basic blocks: 1
+    Calls:
+      -> @track_call
+
+  Function: @op_mul
+    Type: definition
+    Basic blocks: 1
+    Calls:
+      -> @track_call
+
+  Function: @compute
+    Type: definition
+    Basic blocks: 1
+    Calls:
+      -> @abs
+      -> @sum_to_n
+      -> @factorial
+      -> @op_add
+
+  Function: @never_called
+    Type: definition
+    Basic blocks: 1
+    Calls:
+      (none - leaf function)
+
+  Function: @main
+    Type: definition
+    Basic blocks: 1
+    Calls:
+      -> @compute
+      -> @emit_char
+
+========================================
+SUMMARY
+========================================
+  Definitions (would be JIT compiled): 10
+  Declarations (external/imports):     1
+  Total functions:                     11
+  
